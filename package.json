@@ -1,0 +1,19 @@
+{
+  "name": "tree-sitter-turtle",
+  "version": "0.1.0",
+  "description": "A Tree-sitter grammar for Turtle, the terse RDF triple language",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "tree-sitter generate && tree-sitter parse testcase.ttl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmj/tree-sitter-turtle.git"
+  },
+  "author": "David Maus <dmaus@dmaus.name>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dmj/tree-sitter-turtle/issues"
+  },
+  "homepage": "https://github.com/dmj/tree-sitter-turtle#readme"
+}
