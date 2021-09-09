@@ -1,0 +1,129 @@
+===
+Base directive
+===
+
+@base <http://example.com> .
+
+---
+(source (statement (directive (base (IRIREF)))))
+
+===
+Prefix directive
+===
+
+@prefix foo: <http://example.com> .
+
+---
+(source (statement (directive (prefixID (PNAME_NS) (IRIREF)))))
+
+===
+SPARQL Base directive
+===
+
+BASE <http://example.com>
+
+---
+(source (statement (directive (sparqlBase (IRIREF)))))
+
+===
+SPARQL Prefix directive
+===
+
+PREFIX foo: <http://example.com>
+
+---
+
+(source (statement (directive (sparqlPrefix (PNAME_NS) (IRIREF)))))
+
+===
+Simple triple (IRIRef IRIRef IRIRef)
+===
+
+<#foo> <#bar> <#baz> .
+
+---
+(source (statement (triples (subject (iri (IRIREF))) (predicateObjectList (verb (predicate (iri (IRIREF)))) (objectList (object (iri (IRIREF))))))))
+
+===
+Object literal
+===
+
+<#foo> <#bar> "Literal" .
+
+---
+(source
+  (statement
+    (triples
+      (subject (iri (IRIREF)))
+      (predicateObjectList (verb (predicate (iri (IRIREF))))
+      (objectList (object (literal (RDFLiteral (String (STRING_LITERAL_QUOTE))))))))))
+
+===
+Object literal w/ language tag
+===
+
+<#foo> <#bar> "Literal"@en .
+
+---
+(source
+  (statement
+    (triples
+      (subject (iri (IRIREF)))
+      (predicateObjectList (verb (predicate (iri (IRIREF))))
+      (objectList (object (literal (RDFLiteral (String (STRING_LITERAL_QUOTE)) (LANGTAG)))))))))
+
+===
+Object literal w/ type
+===
+
+<#foo> <#bar> "Literal"^^<#type> .
+
+---
+(source
+  (statement
+    (triples
+      (subject (iri (IRIREF)))
+      (predicateObjectList (verb (predicate (iri (IRIREF))))
+      (objectList (object (literal (RDFLiteral (String (STRING_LITERAL_QUOTE)) (iri (IRIREF))))))))))
+
+===
+Object numerical integer
+===
+
+<#foo> <#bar> 1 .
+
+---
+(source
+  (statement
+    (triples
+      (subject (iri (IRIREF)))
+      (predicateObjectList (verb (predicate (iri (IRIREF))))
+      (objectList (object (literal (NumericalLiteral (INTEGER)))))))))
+
+===
+Object numerical positive integer
+===
+
+<#foo> <#bar> +1 .
+
+---
+(source
+  (statement
+    (triples
+      (subject (iri (IRIREF)))
+      (predicateObjectList (verb (predicate (iri (IRIREF))))
+      (objectList (object (literal (NumericalLiteral (INTEGER)))))))))
+
+===
+Object numerical negative integer
+===
+
+<#foo> <#bar> -1 .
+
+---
+(source
+  (statement
+    (triples
+      (subject (iri (IRIREF)))
+      (predicateObjectList (verb (predicate (iri (IRIREF))))
+      (objectList (object (literal (NumericalLiteral (INTEGER)))))))))
